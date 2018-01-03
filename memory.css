@@ -1,18 +1,30 @@
 table {
-   border: 2px solid black;
-   width:50vh;
-   height:50vh;
-   background-color:red;
+   border: 6px solid black;
+   width:70vh;
+   height:70vh;
+   background-color:#89CFC6;
+   	   border-radius:15px;
+
+}
+button{
+	width:130px;
+	height:60px;
+	font-size:16pt;
+	border-radius: 10px;
+	border:10px;
 }
 h1{
 	text-align:center;
 }
 td {
 	   border: 2px solid black;
-	   border-radius:5px;
-	   background-color: blue
+	   border-radius:15px;
+	   
 
 }
-html*{
-	font-family: helvetica;
+body {
+	background-color: Gray;
+}
+html *{
+	font-family:'Impact';
 }

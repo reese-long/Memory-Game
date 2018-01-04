@@ -67,8 +67,8 @@ Game.prototype.randomNoRepeats = function(arr, num){
 
 Game.prototype.chooseTargetTiles = function(){
 	var	numCubes=this.currentLevel*this.currentLevel;
-	var numTarget= this.currentLevel < 5 ? Math.floor(numCubes/3) : 
-	(Math.floor(numCubes/3))-(Math.ceil(this.currentLevel/2));
+	var numTarget= this.currentLevel < 5 ? Math.floor(numCubes/3)+1 : 
+	(Math.floor(numCubes/3))-(Math.ceil(this.currentLevel/2)-2);
 	var targetArr=[];
 	targetArr=this.randomNoRepeats(this.idArr,numTarget) ;
 	return targetArr;
@@ -181,7 +181,7 @@ Game.prototype.attemptSelection = function(){
 $(document).ready(function(){
 //	var self = this;
 	var game = new Game();
-	game.generateGrid(6);
+	game.generateGrid(5);
 	$('td').animate({backgroundColor: '#065373'},0)
 
 	$('#startButton').on('click', function(){

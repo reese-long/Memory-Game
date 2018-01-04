@@ -13,6 +13,8 @@
 //SHOW CORRECT BEFORE NXT LEVEL
 //POINT SYSTEM
 //can remove 'this' for more 'var'
+//go back level
+//number of targets display
 function Game(){
 	this.currentLevel = 1;
 	this.targets=[];
@@ -110,6 +112,7 @@ Game.prototype.showTiles = function(){
 Game.prototype.changeLevel = function(upOrDown){
 
 	(upOrDown === true)?this.currentLevel++:this.currentLevel--;
+
 	this.readyForInput = false;
 	this.targets=[];
 	this.idArr = [];
@@ -117,8 +120,8 @@ Game.prototype.changeLevel = function(upOrDown){
 	this.generateGrid(this.currentLevel);
 	this.showTiles();
 	this.attemptSelection();
-		$('#startButton').prop('disabled',true).css({backgroundColor:'Gray'});
-
+		$('#startButton').prop('disabled',true)
+$('#startButton').animate({backgroundColor:'Gray'},300);
 }
 
 
@@ -154,7 +157,7 @@ Game.prototype.attemptSelection = function(){
 		else if (guessed.indexOf(clicked) <0&&!done){
 						var newSelf = this;
 						//if(!done){
-			$(this).animate({backgroundColor:'Red'},500)
+			$(this).animate({backgroundColor:'Red'},200)
 			numWrong++;
 			if(numWrong >= missesAllowed&&self.currentLevel>2){
 			//	setTimeout(function(){},1000;)
@@ -162,9 +165,9 @@ Game.prototype.attemptSelection = function(){
 			}
 
 			setTimeout(function(){
-				$(newSelf).animate({backgroundColor:'#065373'},2300)
+				$(newSelf).animate({backgroundColor:'#065373'},500)
 
-				})
+				},600)
 			}
 
 
@@ -172,24 +175,33 @@ Game.prototype.attemptSelection = function(){
 		})
 		},tileDisableTime)
 
-// 	if(this.readyForInput == true){
-// 		console.log('its true')
-	
-
-
-// }
 }
 
 
 $(document).ready(function(){
-
+//	var self = this;
 	var game = new Game();
 	game.generateGrid(6);
-	$('td').animate({backgroundColor: '#116675'},0)
+	$('td').animate({backgroundColor: '#065373'},0)
 
 	$('#startButton').on('click', function(){
 		game.changeLevel(true);
 	});
+	$('#leftArrow,#rightArrow').on('click',function(event){
+		console.log('THIS',this.id)
+			if(this.id == 'leftArrow')
+			{
+				if(game.currentLevel>2)
+					{game.changeLevel(false)
+					}
+			}
+			else{game.changeLevel(true);}
+			
+			
+			
+
+			
+})
 
 });
 

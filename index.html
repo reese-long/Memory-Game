@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  
 <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -12,22 +13,32 @@
     <title>The Memory Game</title>
     <link rel="stylesheet" href="memory.css">
     <script src="memory.js"></script>
+    <script src="https://use.fontawesome.com/f23eb7e2e7.js"></script>
   </head>
   <body>
     <div id = "header" align="center">
       <h1 >The Memory Game</h1>
     </div>
-    <div id = 'gameDiv' align="center">
-      <table id = 'gameTable'>
-        
-      </table>
-      
+
+    <div  id = 'specialContainer'>
+
+      <div style= "float:left">
+      <i class="fa fa-chevron-circle-left fa-5x" id = 'leftArrow' aria-hidden="true" ></i>
+      </div>
+
+      <div style= "float:left">
+      <table id = 'gameTable' align="center"></table>
+      </div>
+
+      <div style= "float:left">
+      <i class="fa fa-chevron-circle-right fa-5x" id = 'rightArrow' aria-hidden="true"></i>
+      </div>
     </div>
 <br>
 <br>
 <br>
 
-    <div align="center"><button id = 'startButton'><b>START</b></button></div>
+    <div align="center"><button id = 'startButton'><b>START</b></div>
 
     <!-- page content -->
   </body>

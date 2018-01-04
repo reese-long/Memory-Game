@@ -2,24 +2,49 @@ table {
    border: 6px solid black;
    width:55vh;
    height:55vh;
-   background-color:#89CFC6;
+   background-color:#6FC6D5;
    	   border-radius:30px;
    	   border-spacing: 10px;
 
 }
+#specialContainer{
+	 display: flex;                  /* establish flex container */
+  flex-direction: row;            /* default value; can be omitted */
+  flex-wrap: nowrap;              /* default value; can be omitted */
+  justify-content: space-between; /* switched from default (flex-start, see below) */
+  background-color: Gray;
+}
+
+.fa {
+		position: relative;
+top:200px;
+	color: #505050;
+		cursor:pointer;
+
+
+}
+#rightArrow{
+   right:200px;
+}
+#leftArrow{
+   left:200px;
+}
 button{
+	margin:30px;
+	border:3px;
 	cursor:pointer;
 	width:130px;
 	height:60px;
 	font-size:20pt;
-	border-radius: 10px;
-	border:10px;
+	border-radius: 20px;
+	border-style:solid;
 	font-weight: 600;
 	padding:0px;
 	background-color: #23E162;
 }
 h1{
 		font-size:33pt;
+		margin-bottom: 60px;
 
 }
 td {

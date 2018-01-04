@@ -12,12 +12,14 @@
 //ADD TIMER
 //SHOW CORRECT BEFORE NXT LEVEL
 //POINT SYSTEM
-
+//can remove 'this' for more 'var'
 function Game(){
 	this.currentLevel = 1;
 	this.targets=[];
 	this.idArr = [];
-	this.num
+//	this.num
+	this.readyForInput = false;
+	//this.currentScore
 	//varbuttonColor = '#542B72'
 }
 
@@ -63,7 +65,8 @@ Game.prototype.randomNoRepeats = function(arr, num){
 
 Game.prototype.chooseTargetTiles = function(){
 	var	numCubes=this.currentLevel*this.currentLevel;
-	var numTarget=Math.floor(numCubes/3);
+	var numTarget= this.currentLevel < 5 ? Math.floor(numCubes/3) : 
+	(Math.floor(numCubes/3))-(Math.ceil(this.currentLevel/2));
 	var targetArr=[];
 	targetArr=this.randomNoRepeats(this.idArr,numTarget) ;
 	return targetArr;
@@ -98,9 +101,8 @@ Game.prototype.showTiles = function(){
 		$(joined).animate({backgroundColor:'#F6D550'},{duration:300})
 	$(joined).animate({backgroundColor:'#F6D550'},{duration:exposureTime})
 	$('td').animate({backgroundColor:'#065373'},{duration:300})
-},blueTilesPreexposureTime)
-	
-	
+	},blueTilesPreexposureTime)
+
 }
 
 
@@ -108,42 +110,53 @@ Game.prototype.showTiles = function(){
 Game.prototype.changeLevel = function(upOrDown){
 
 	(upOrDown === true)?this.currentLevel++:this.currentLevel--;
+	this.readyForInput = false;
 	this.targets=[];
 	this.idArr = [];
 	$('#gameTable').empty();	
 	this.generateGrid(this.currentLevel);
 	this.showTiles();
 	this.attemptSelection();
-		$('#startButton').prop('disabled',true);
+		$('#startButton').prop('disabled',true).css({backgroundColor:'Gray'});
 
 }
 
 
 Game.prototype.attemptSelection = function(){
+	console.log('initial RFI val: ', this.readyForInput)
 	var numWrong = 0;
 	var self = this; //game
 	var guessed = [];
 	var done = false;
 	var numberCorrect = 0;
 	var missesAllowed = Math.floor(this.targets.length/2)+Math.ceil(this.currentLevel/2);
-	$('td').on('click', function(){console.log(this.id,self.targets)
-	var clicked = parseInt(this.id.slice(4));
-	if(self.targets.indexOf(clicked)>-1 && guessed.indexOf(clicked) <0){
+	var tileDisableTime = (self.currentLevel>3) ? 4000:3000
+		if(self.currentLevel>5){tileDisableTime +=1000}
+	setTimeout(function(){
+		
+		$('td').on('click', function(){
+		console.log(this.id,self.targets)
+		var clicked = parseInt(this.id.slice(4));
+
+		if(self.targets.indexOf(clicked)>-1 && guessed.indexOf(clicked) <0){
 		guessed.push(clicked)
 		$(this).animate({backgroundColor:'#F6D550'},200)
 		numberCorrect++;
 		if(numberCorrect==self.targets.length){
 			done = true;
 			$('td').animate({backgroundColor:'#F6D550'},500);
+			$()
 			$('#startButton').prop('disabled',false)
-			$('#startButton').text("Go to Level "+ self.currentLevel)					
+			$('#startButton').text("Level "+ self.currentLevel)
+			$('#startButton').css({backgroundColor:'#23E162'})					
 			}
 		}
-		else if (guessed.indexOf(clicked) <0){
+		else if (guessed.indexOf(clicked) <0&&!done){
 						var newSelf = this;
+						//if(!done){
 			$(this).animate({backgroundColor:'Red'},500)
 			numWrong++;
-			if(numWrong >= missesAllowed){
+			if(numWrong >= missesAllowed&&self.currentLevel>2){
 			//	setTimeout(function(){},1000;)
 				self.changeLevel(false);
 			}
@@ -151,10 +164,20 @@ Game.prototype.attemptSelection = function(){
 			setTimeout(function(){
 				$(newSelf).animate({backgroundColor:'#065373'},2300)
 
-		})
-	}
-})
+				})
+			}
 
+
+
+		})
+		},tileDisableTime)
+
+// 	if(this.readyForInput == true){
+// 		console.log('its true')
+	
+
+
+// }
 }
 
 
@@ -162,6 +185,7 @@ $(document).ready(function(){
 
 	var game = new Game();
 	game.generateGrid(6);
+	$('td').animate({backgroundColor: '#116675'},0)
 
 	$('#startButton').on('click', function(){
 		game.changeLevel(true);

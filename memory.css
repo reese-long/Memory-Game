@@ -4,7 +4,7 @@ table {
    height:55vh;
    background-color:#89CFC6;
    	   border-radius:30px;
-   	   border-spacing: 17px;
+   	   border-spacing: 10px;
 
 }
 button{
@@ -15,10 +15,11 @@ button{
 	border-radius: 10px;
 	border:10px;
 	font-weight: 600;
+	padding:0px;
+	background-color: #23E162;
 }
 h1{
-	text-align:center;
-		font-size:50pt;
+		font-size:33pt;
 
 }
 td {
@@ -28,6 +29,17 @@ td {
 	border-radius :20px;
 	   
 
+}
+
+#headerDiv{
+	border :2px solid red;
+
+
+	background-color:#116675;
+	border-radius: 10px;
+	border:10px;
+	width:500px;
+	margin: 0 auto;
 }
 
 body {

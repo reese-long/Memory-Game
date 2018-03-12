@@ -64,7 +64,6 @@ Game.prototype.randomNoRepeats = function(arr, num){
 
 }
 
-
 Game.prototype.chooseTargetTiles = function(){
 	var	numCubes=this.currentLevel*this.currentLevel;
 	var numTarget= this.currentLevel < 5 ? Math.floor(numCubes/3)+1 : 
@@ -74,29 +73,22 @@ Game.prototype.chooseTargetTiles = function(){
 	return targetArr;
 }
 
-
 Game.prototype.showTiles = function(){
-
-	var selectorArr = [];
-	var blueTilesPreexposureTime = 1700; //works
-	var exposureTime =600;
-	if(this.currentLevel>3){
-		exposureTime+=1000;
-		if(this.currentLevel>5){
-			exposureTime+=1000
+	let selectorArr = [];
+	const blueTilesPreexposureTime = 1700; //works
+	let exposureTime = 600;
+	if (this.currentLevel > 3){
+		exposureTime += 1000;
+		if (this.currentLevel > 5){
+			exposureTime += 1000
 			}
 		}
-
-
 	this.targets = this.chooseTargetTiles();
-	console.log('thisTarg = ',this.targets)
-
 	for (var i  =0; i< this.targets.length; i++)
 		{
 		var selector = '#tile'+this.targets[i];
 		selectorArr.push(selector);
 		}
-
 	var joined =  selectorArr.join(', ');
 	$('td').animate({backgroundColor:'#065373'},{duration: 300})
 	setTimeout(function(){

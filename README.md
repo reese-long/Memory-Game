@@ -1,4 +1,4 @@
-# memory-Game
+# memory-game
 This is a game to exercise visual/spatial memory. It lives entirely on the front end and was made using HTML, CSS, Javascript and jquery.
 
 The flow of the game is as follows:

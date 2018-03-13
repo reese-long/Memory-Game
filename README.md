@@ -10,4 +10,4 @@ The flow of the game is as follows:
 - The number of target tiles and the exposure time for the target tiles varies based on the current level
 
 
-![an image of the game](https://raw.githubusercontent.com/reese-long/memory-game/demoPhoto.png)
+![an image of the game](https://raw.githubusercontent.com/reese-long/Memory-game/master/demoPhoto.png)

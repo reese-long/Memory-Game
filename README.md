@@ -1,5 +1,5 @@
-# Memory-Game
-This is a game to exercise ones visual/spatial memory. It lives entirely on the front end and was made using HTML, CSS, Javascript and jquery.
+# memory-Game
+This is a game to exercise visual/spatial memory. It lives entirely on the front end and was made using HTML, CSS, Javascript and jquery.
 
 The flow of the game is as follows:
 - The starting dimensions of the grid are 2 X 2
@@ -10,4 +10,4 @@ The flow of the game is as follows:
 - The number of target tiles and the exposure time for the target tiles varies based on the current level
 
 
-![an image of the game](https://raw.githubusercontent.com/reese-long/Memory-game/master/demoPhoto.png)
+![an image of the game](https://raw.githubusercontent.com/reese-long/memory-game/master/demoPhoto.png)

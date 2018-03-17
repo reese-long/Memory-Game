@@ -1,4 +1,5 @@
-# Memory-Game
+
+# memory-game
 This is a game to exercise visual/spatial memory. It lives entirely on the front end and was made using HTML, CSS, Javascript and jquery.
 
 The flow of the game is as follows:
@@ -10,4 +11,4 @@ The flow of the game is as follows:
 - The number of target tiles and the exposure time for the target tiles varies based on the current level
 
 
-![an image of the game](https://raw.githubusercontent.com/reese-long/Memory-game/master/demoPhoto.png)
+[image of the game](https://raw.githubusercontent.com/reese-long/memory-game/master/demoPhoto.png)
